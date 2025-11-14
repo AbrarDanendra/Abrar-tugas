@@ -1,74 +1,101 @@
 
 ---
 
-# 📘 Studi Kasus: Menggunakan Function di Python
+# 📘 Studi Kasus: Fungsi Python — *calculate_discount()*
 
-Proyek sederhana ini dibuat untuk mempelajari dasar penggunaan **function (fungsi)** dalam Python dengan contoh studi kasus yang mudah dipahami.
+## 🎯 Tujuan Fungsi
 
-## 🎯 Tujuan
+Fungsi ini digunakan untuk menghitung harga akhir sebuah produk setelah diberikan diskon. Fungsi menerima:
 
-* Memahami cara mendefinisikan dan memanggil fungsi di Python.
-* Menggunakan parameter dan *return value*.
-* Menerapkan fungsi dalam sebuah studi kasus nyata.
+* **harga awal**
+* **persentase diskon**
+* **opsional: batas maksimum diskon (jika ada)**
 
----
+## 📝 Deskripsi Singkat
 
-# 🧩 Studi Kasus: Program Penghitung Diskon Sederhana
+Fungsi akan:
 
-Kita akan membuat fungsi untuk menghitung harga akhir sebuah barang setelah diberikan diskon. Fungsi ini akan menerima:
-
-* `harga`: harga awal barang
-* `diskon`: persentase diskon (contoh: 20 untuk 20%)
-
-### 🔍 Flow sederhana:
-
-1. User memasukkan harga barang.
-2. User memasukkan diskon yang ingin diberikan.
-3. Program memanggil fungsi `hitung_diskon()`.
-4. Fungsi mengembalikan harga setelah diskon.
+1. Menghitung jumlah diskon berdasarkan persentase.
+2. Memastikan diskon tidak melebihi batas maksimum (jika ditentukan).
+3. Menghasilkan harga final setelah diskon diterapkan.
+4. Mengembalikan data berupa detail perhitungan.
 
 ---
 
-# 📄 Contoh Kode
+# 📂 Contoh Studi Kasus & Output
 
-```python
-def hitung_diskon(harga, diskon):
-    """
-    Menghitung harga akhir setelah diskon.
+## **Studi Kasus 1:** Diskon Tanpa Batas Maks
 
-    Parameter:
-    - harga (int/float): Harga awal barang.
-    - diskon (int/float): Persentase diskon.
+**Input:**
 
-    Returns:
-    - float: Harga akhir setelah diskon diterapkan.
-    """
-    potongan = harga * (diskon / 100)
-    harga_akhir = harga - potongan
-    return harga_akhir
+* Harga awal: `100000`
+* Diskon: `20%`
 
+**Output (contoh):**
 
-# Contoh penggunaan fungsi
-harga_barang = float(input("Masukkan harga barang: "))
-persen_diskon = float(input("Masukkan diskon (%): "))
-
-hasil = hitung_diskon(harga_barang, persen_diskon)
-
-print(f"Harga setelah diskon: Rp{hasil:,.2f}")
+```
+Harga awal      : 100000
+Persentase diskon: 20%
+Jumlah diskon    : 20000
+Harga akhir      : 80000
 ```
 
 ---
 
-# 🧪 Contoh Output
+## **Studi Kasus 2:** Diskon Dengan Batas Maksimum
+
+**Input:**
+
+* Harga awal: `250000`
+* Diskon: `50%`
+* Maksimal diskon: `80000`
+
+**Output (contoh):**
 
 ```
-Masukkan harga barang: 150000
-Masukkan diskon (%): 20
-Harga setelah diskon: Rp120,000.00
+Harga awal         : 250000
+Persentase diskon  : 50%
+Hitungan diskon     : 125000
+Batas diskon maksimal: 80000
+Diskon diterapkan   : 80000
+Harga akhir         : 170000
 ```
 
 ---
 
+## **Studi Kasus 3:** Diskon Sangat Kecil
 
+**Input:**
 
+* Harga awal: `50000`
+* Diskon: `2%`
+
+**Output (contoh):**
+
+```
+Harga awal      : 50000
+Persentase diskon: 2%
+Jumlah diskon    : 1000
+Harga akhir      : 49000
+```
+
+---
+
+## **Studi Kasus 4:** Diskon 100%
+
+**Input:**
+
+* Harga awal: `75000`
+* Diskon: `100%`
+
+**Output (contoh):**
+
+```
+Harga awal      : 75000
+Persentase diskon: 100%
+Jumlah diskon    : 75000
+Harga akhir      : 0
+```
+
+---
 
