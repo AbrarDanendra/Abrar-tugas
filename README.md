@@ -1,4 +1,3 @@
-Berikut contoh *studi kasus* sederhana tentang **Python Function** yang bisa langsung kamu jadikan `README.md` untuk GitHub. Bahasa dibuat jelas dan rapi agar terlihat profesional.
 
 ---
 
@@ -70,24 +69,6 @@ Harga setelah diskon: Rp120,000.00
 
 ---
 
-# 📦 Apa yang Dipelajari?
 
-✔ Cara membuat fungsi
-✔ Cara menerima parameter
-✔ Cara mengembalikan nilai dengan `return`
-✔ Cara menerapkan fungsi untuk menyelesaikan masalah nyata
-
----
-
-# 🚀 Pengembangan Selanjutnya
-
-Kamu bisa mengembangkan program ini dengan:
-
-* Menambahkan validasi input
-* Membuat menu interaktif
-* Menyimpan data barang ke file `.json` atau `.csv`
-* Membuat versi GUI dengan `tkinter`
-
----
 
 
