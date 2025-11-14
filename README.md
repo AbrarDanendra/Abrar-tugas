@@ -1,119 +1,93 @@
-# =======================================================================
-# Sistem Manajemen Perpustakaan Sederhana
-# Menggunakan Function – Cocok untuk Pembelajaran Python Dasar
-# =======================================================================
+Berikut contoh *studi kasus* sederhana tentang **Python Function** yang bisa langsung kamu jadikan `README.md` untuk GitHub. Bahasa dibuat jelas dan rapi agar terlihat profesional.
 
-# Data awal perpustakaan
-perpustakaan = [
-    {"judul": "Belajar Python untuk Pemula", "penulis": "Andi", "tahun": 2020, "status": "Tersedia"},
-    {"judul": "Algoritma dan Struktur Data", "penulis": "Budi", "tahun": 2019, "status": "Dipinjam"},
-    {"judul": "Jaringan Komputer Dasar", "penulis": "Citra", "tahun": 2021, "status": "Tersedia"},
-]
+---
 
-# ================================================================
-# Function untuk menampilkan seluruh buku
-# ================================================================
-def tampilkan_buku():
-    print("\n=== Daftar Buku di Perpustakaan ===")
-    if len(perpustakaan) == 0:
-        print("Tidak ada buku dalam perpustakaan.")
-        return
-    
-    for i, buku in enumerate(perpustakaan, start=1):
-        print(f"{i}. {buku['judul']} | {buku['penulis']} | {buku['tahun']} | Status: {buku['status']}")
-    print("====================================")
+# 📘 Studi Kasus: Menggunakan Function di Python
 
+Proyek sederhana ini dibuat untuk mempelajari dasar penggunaan **function (fungsi)** dalam Python dengan contoh studi kasus yang mudah dipahami.
 
-# ================================================================
-# Function untuk menambah buku baru
-# ================================================================
-def tambah_buku():
-    print("\n=== Tambah Buku Baru ===")
-    judul = input("Masukkan judul buku : ")
-    penulis = input("Masukkan nama penulis: ")
-    tahun = int(input("Masukkan tahun terbit: "))
+## 🎯 Tujuan
 
-    buku_baru = {
-        "judul": judul,
-        "penulis": penulis,
-        "tahun": tahun,
-        "status": "Tersedia"
-    }
+* Memahami cara mendefinisikan dan memanggil fungsi di Python.
+* Menggunakan parameter dan *return value*.
+* Menerapkan fungsi dalam sebuah studi kasus nyata.
 
-    perpustakaan.append(buku_baru)
-    print(f"Buku '{judul}' berhasil ditambahkan!")
+---
 
+# 🧩 Studi Kasus: Program Penghitung Diskon Sederhana
 
-# ================================================================
-# Function untuk menghapus buku
-# ================================================================
-def hapus_buku():
-    tampilkan_buku()
-    print("\n=== Hapus Buku ===")
-    judul_hapus = input("Masukkan judul buku yang ingin dihapus: ")
+Kita akan membuat fungsi untuk menghitung harga akhir sebuah barang setelah diberikan diskon. Fungsi ini akan menerima:
 
-    for buku in perpustakaan:
-        if buku["judul"].lower() == judul_hapus.lower():
-            perpustakaan.remove(buku)
-            print(f"Buku '{judul_hapus}' berhasil dihapus!")
-            return
-    
-    print("Buku tidak ditemukan!")
+* `harga`: harga awal barang
+* `diskon`: persentase diskon (contoh: 20 untuk 20%)
+
+### 🔍 Flow sederhana:
+
+1. User memasukkan harga barang.
+2. User memasukkan diskon yang ingin diberikan.
+3. Program memanggil fungsi `hitung_diskon()`.
+4. Fungsi mengembalikan harga setelah diskon.
+
+---
+
+# 📄 Contoh Kode
+
+```python
+def hitung_diskon(harga, diskon):
+    """
+    Menghitung harga akhir setelah diskon.
+
+    Parameter:
+    - harga (int/float): Harga awal barang.
+    - diskon (int/float): Persentase diskon.
+
+    Returns:
+    - float: Harga akhir setelah diskon diterapkan.
+    """
+    potongan = harga * (diskon / 100)
+    harga_akhir = harga - potongan
+    return harga_akhir
 
 
-# ================================================================
-# Function untuk mencari buku berdasarkan judul
-# ================================================================
-def cari_buku():
-    print("\n=== Cari Buku ===")
-    kata_kunci = input("Masukkan judul atau bagian judul: ")
+# Contoh penggunaan fungsi
+harga_barang = float(input("Masukkan harga barang: "))
+persen_diskon = float(input("Masukkan diskon (%): "))
 
-    hasil = []
-    for buku in perpustakaan:
-        if kata_kunci.lower() in buku["judul"].lower():
-            hasil.append(buku)
-    
-    if len(hasil) == 0:
-        print("Tidak ada buku yang cocok dengan pencarian.")
-    else:
-        print("\nHasil Pencarian:")
-        for i, buku in enumerate(hasil, 1):
-            print(f"{i}. {buku['judul']} | {buku['penulis']} | {buku['tahun']} | Status: {buku['status']}")
+hasil = hitung_diskon(harga_barang, persen_diskon)
 
+print(f"Harga setelah diskon: Rp{hasil:,.2f}")
+```
 
-# ================================================================
-# Menu utama
-# ================================================================
-def menu():
-    while True:
-        print("\n==============================")
-        print("   SISTEM PERPUSTAKAAN MINI  ")
-        print("==============================")
-        print("1. Tampilkan Semua Buku")
-        print("2. Tambah Buku")
-        print("3. Hapus Buku")
-        print("4. Cari Buku")
-        print("5. Keluar")
-        print("==============================")
+---
 
-        pilihan = input("Pilih menu (1-5): ")
+# 🧪 Contoh Output
 
-        if pilihan == "1":
-            tampilkan_buku()
-        elif pilihan == "2":
-            tambah_buku()
-        elif pilihan == "3":
-            hapus_buku()
-        elif pilihan == "4":
-            cari_buku()
-        elif pilihan == "5":
-            print("Program selesai. Terima kasih!")
-            break
-        else:
-            print("Pilihan tidak valid, coba lagi!")
+```
+Masukkan harga barang: 150000
+Masukkan diskon (%): 20
+Harga setelah diskon: Rp120,000.00
+```
+
+---
+
+# 📦 Apa yang Dipelajari?
+
+✔ Cara membuat fungsi
+✔ Cara menerima parameter
+✔ Cara mengembalikan nilai dengan `return`
+✔ Cara menerapkan fungsi untuk menyelesaikan masalah nyata
+
+---
+
+# 🚀 Pengembangan Selanjutnya
+
+Kamu bisa mengembangkan program ini dengan:
+
+* Menambahkan validasi input
+* Membuat menu interaktif
+* Menyimpan data barang ke file `.json` atau `.csv`
+* Membuat versi GUI dengan `tkinter`
+
+---
 
 
-# ================================================================
-# Jalankan Program
-# ================================================================
-menu()
